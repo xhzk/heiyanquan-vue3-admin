@@ -1,7 +1,6 @@
 <script lang="ts" setup></script>
 <template>
 	<div>
-		<!-- 配置路由出口 -->
-		<router-view />
+		<h1>这是login页面</h1>
 	</div>
 </template>
