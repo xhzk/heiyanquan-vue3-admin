@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import svgLoader from 'vite-svg-loader'
 
 // 以下三项引入是为配置Element-plus自动按需导入
 import AutoImport from 'unplugin-auto-import/vite'
@@ -13,6 +14,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
 	plugins: [
 		vue(),
+		svgLoader(),
 		AutoImport({
 			resolvers: [ElementPlusResolver()]
 		}),
