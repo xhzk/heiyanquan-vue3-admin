@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import svgLoader from 'vite-svg-loader'
 
+// svg plugin
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
 // 以下三项引入是为配置Element-plus自动按需导入
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -15,6 +18,9 @@ export default defineConfig({
 	plugins: [
 		vue(),
 		svgLoader(),
+		createSvgIconsPlugin({
+			iconDirs: [resolve(__dirname, './src/assets/svg')]
+		}),
 		AutoImport({
 			resolvers: [ElementPlusResolver()]
 		}),
