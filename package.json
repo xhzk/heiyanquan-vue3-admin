@@ -16,8 +16,10 @@
 		"@element-plus/icons-vue": "^2.3.1",
 		"@pureadmin/utils": "^2.4.4",
 		"@vueuse/motion": "^2.0.0",
+		"axios": "^1.6.7",
 		"element-plus": "^2.5.5",
 		"pinia": "^2.1.7",
+		"responsive-storage": "^2.2.0",
 		"vue": "^3.3.11",
 		"vue-router": "^4.2.5"
 	},
