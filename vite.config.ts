@@ -1,42 +1,40 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { UserConfigExport, ConfigEnv, loadEnv } from 'vite'
+import { warpperEnv } from './build'
+import { getPluginsList } from './build/plugins'
 import { resolve } from 'path'
-import svgLoader from 'vite-svg-loader'
 
-// svg plugin
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+/** 当前执行node命令时文件夹的地址（工作目录） */
+const root: string = process.cwd()
 
-// 以下三项引入是为配置Element-plus自动按需导入
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+/** 路径查找 */
+const pathResolve = (dir: string): string => {
+	return resolve(__dirname, '.', dir)
+}
+
+/** 设置别名 */
+const alias: Record<string, string> = {
+	'@': pathResolve('src')
+}
 
 // vite官网
 // https://vitejs.dev/config/
 
-export default defineConfig({
-	plugins: [
-		vue(),
-		svgLoader(),
-		createSvgIconsPlugin({
-			iconDirs: [resolve(__dirname, './src/assets/svg')]
-		}),
-		AutoImport({
-			resolvers: [ElementPlusResolver()]
-		}),
-		Components({
-			resolvers: [ElementPlusResolver()]
-		})
-	],
-	resolve: {
-		alias: {
-			'@': resolve('src')
-		}
-	},
-	base: './', //打包路径
-	server: {
-		port: 4000, // 服务端口号
-		open: false, // 服务启动时是否自动打开浏览器
-		cors: true // 允许跨域
+export default ({ mode }: ConfigEnv): UserConfigExport => {
+	const { VITE_PORT, VITE_PUBLIC_PATH } = warpperEnv(loadEnv(mode, root))
+	return {
+		base: VITE_PUBLIC_PATH,
+		root,
+		resolve: {
+			alias
+		},
+		// 服务端渲染
+		server: {
+			// 端口号
+			port: VITE_PORT,
+			host: '0.0.0.0',
+			// 本地跨域代理 https://cn.vitejs.dev/config/server-options.html#server-proxy
+			proxy: {}
+		},
+		plugins: getPluginsList()
 	}
-})
+}
