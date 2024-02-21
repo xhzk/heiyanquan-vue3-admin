@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { setupStore } from '@/store'
 import { setupRouter } from '@/router'
 import { MotionPlugin } from '@vueuse/motion'
 
@@ -17,6 +18,7 @@ const app = createApp(App)
 const setupApp = async () => {
 	// 创建路由
 	setupRouter(app)
+	setupStore(app)
 	app.component('svg-icon', SvgIcon)
 	app.use(MotionPlugin)
 	app.mount('#app')
