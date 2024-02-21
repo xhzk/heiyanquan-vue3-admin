@@ -1,23 +1,12 @@
 import type { App } from 'vue'
 // 引入 login.ts
-import LoginRouter from './modules/login'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-export const publicRoutes: Array<RouteRecordRaw> = [
-	...LoginRouter,
-	{
-		path: '/',
-		name: 'home',
-		redirect: '/home',
-		component: () => import('@/views/layout/index.vue'),
-		children: [
-			{
-				path: '/home',
-				component: () => import('@/views/home/index.vue')
-			}
-		]
-	}
-]
+import loginRouter from './modules/login'
+import homeRouter from './modules/home'
+import errorRouter from './modules/error'
+
+export const publicRoutes: Array<RouteRecordRaw> = [...loginRouter, ...homeRouter, ...errorRouter]
 
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -33,6 +22,7 @@ export function resetRouter() {
 		}
 	})
 }
+
 /* 导出 setupRouter */
 export const setupRouter = (app: App<Element>) => {
 	app.use(router)
