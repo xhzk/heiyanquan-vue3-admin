@@ -13,7 +13,7 @@ export function getPluginsList() {
 		vue(),
 		svgLoader(),
 		createSvgIconsPlugin({
-			iconDirs: [resolve(__dirname, './src/assets/svg')]
+			iconDirs: [resolve(__dirname, '../src/assets/svg')]
 		}),
 		AutoImport({
 			resolvers: [ElementPlusResolver()]
