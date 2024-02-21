@@ -1,24 +1,22 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"module": "ESNext",
-		"lib": ["ESNext", "DOM", "DOM.Iterable"],
-		"skipLibCheck": true,
-
-		/* Bundler mode */
+		"target": "esnext",
+		"module": "esnext",
 		"moduleResolution": "Node",
-		"allowImportingTsExtensions": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
+		"strict": false,
 		"jsx": "preserve",
-
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
+		"importHelpers": true,
+		"experimentalDecorators": true,
+		"strictFunctionTypes": false,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"sourceMap": true,
+		"allowJs": false,
+		"resolveJsonModule": true,
+		"lib": ["dom", "esnext"],
 
 		// 配置@
 		"baseUrl": ".",
@@ -26,7 +24,8 @@
 			"@/*": ["src/*"]
 		},
 
-		"types": ["element-plus/global"]
+		"types": ["vite/client", "element-plus/global"]
 	},
-	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/*.d.ts", "vite.config.ts"],
+	"exclude": ["dist", "**/*.js", "node_modules"]
 }
