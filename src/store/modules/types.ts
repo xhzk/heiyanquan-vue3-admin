@@ -9,4 +9,5 @@ export type appType = {
 
 export type userType = {
 	currentPage?: number
+	username?: string
 }
