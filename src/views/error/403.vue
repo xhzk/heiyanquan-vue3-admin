@@ -47,6 +47,7 @@ const router = useRouter()
 			</p>
 			<el-button
 				type="primary"
+				color="#0c53fb"
 				@click="router.push('/')"
 				v-motion
 				:initial="{
