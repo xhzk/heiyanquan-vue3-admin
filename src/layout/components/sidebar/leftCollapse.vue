@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import MenuFold from '@/assets/layout/close.svg?component'
+import MenuFold from '@iconify-icons/ri/menu-fold-fill'
+
 interface Props {
 	isActive: boolean
 }
@@ -19,12 +20,11 @@ const toggleClick = () => {
 
 <template>
 	<div class="fold-container">
-		<el-icon
+		<IconifyIconOffline
+			:icon="MenuFold"
 			class="icon"
 			:style="{ transform: props.isActive ? 'none' : 'rotateY(180deg)' }"
-			@click="toggleClick">
-			<MenuFold />
-		</el-icon>
+			@click="toggleClick" />
 	</div>
 </template>
 
