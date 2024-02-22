@@ -4,6 +4,8 @@
 		"module": "esnext",
 		"moduleResolution": "Node",
 		"strict": false,
+		"noUnusedParameters": true,
+		"noUnusedLocals": true,
 		"jsx": "preserve",
 		"importHelpers": true,
 		"experimentalDecorators": true,
