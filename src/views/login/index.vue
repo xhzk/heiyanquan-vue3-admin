@@ -1,16 +1,17 @@
 <script lang="ts" setup>
 import Motion from './utils/motion'
-import { User, Lock } from '@element-plus/icons-vue'
 import { toRaw } from 'vue'
 import { bg, picture } from './utils/static'
 import update from './components/updata.vue'
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useUserStoreHook } from '@/store/modules/user'
+import { useRenderIcon } from '@/components/ReIcon/src/hooks'
+import User from '@iconify-icons/ep/user'
+import Lock from '@iconify-icons/ep/lock'
 
-// 判断登录页面显示哪个组件（0：登录（默认）、1：忘记密码）
-const currentPage = ref(0)
-const SET_CURRENTPAGE = (value: number) => {
-	currentPage.value = value
-}
+const currentPage = computed(() => {
+	return useUserStoreHook().currentPage
+})
 </script>
 
 <template>
@@ -30,20 +31,27 @@ const SET_CURRENTPAGE = (value: number) => {
 					<el-form v-if="currentPage === 0">
 						<Motion :delay="100">
 							<el-form-item prop="username">
-								<el-input :prefix-icon="User" placeholder="请输入用户名 "></el-input>
+								<el-input :prefix-icon="useRenderIcon(User)" placeholder="请输入用户名 "></el-input>
 							</el-form-item>
 						</Motion>
 
 						<Motion :delay="150">
 							<el-form-item prop="password">
-								<el-input :prefix-icon="Lock" placeholder="请输入密码" show-password></el-input>
+								<el-input
+									:prefix-icon="useRenderIcon(Lock)"
+									placeholder="请输入密码"
+									show-password></el-input>
 							</el-form-item>
 						</Motion>
 
 						<Motion :delay="250">
 							<el-form-item class="flex">
 								<div class="flex">
-									<el-button link type="primary" :underline="false" @click="SET_CURRENTPAGE(1)">
+									<el-button
+										link
+										type="primary"
+										:underline="false"
+										@click="useUserStoreHook().SET_CURRENTPAGE(1)">
 										忘记密码？
 									</el-button>
 								</div>

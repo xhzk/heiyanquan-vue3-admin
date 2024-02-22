@@ -6,3 +6,7 @@ export type appType = {
 	}
 	device: string
 }
+
+export type userType = {
+	currentPage?: number
+}
