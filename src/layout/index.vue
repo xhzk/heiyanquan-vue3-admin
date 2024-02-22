@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import '@/components/ReIcon/src/offlineIcon'
 import { ref } from 'vue'
 import SiderBar from './components/sidebar/index.vue'
 import { useNav } from './hooks/useNav'

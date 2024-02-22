@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouteRecordRaw } from 'vue-router'
+import { useRenderIcon } from '@/components/ReIcon/src/hooks'
 // 做类型限制，解决ts类型报错
 type CustomRouteRecordRaw = RouteRecordRaw & {
 	meta: {
@@ -20,7 +21,7 @@ const props = defineProps({
 		<el-sub-menu :index="item.path" v-if="item.children && item.children.length > 0">
 			<template #title v-if="item.meta.icon">
 				<!-- 菜单项图标，全局封装的 svg组件 -->
-				<el-icon><svg-icon :icon-class="item.meta.icon" /></el-icon>
+				<el-icon><component :is="useRenderIcon(item.meta.icon)" /></el-icon>
 				<!-- 菜单项名称，在路由中定义好 -->
 				<span>{{ item.meta.title }}</span>
 			</template>
@@ -35,7 +36,7 @@ const props = defineProps({
 		<el-menu-item :index="item.path" v-else>
 			<!-- 与上面注释大致相同，不多做额外注释 -->
 			<template v-if="item.meta.icon">
-				<el-icon><svg-icon :icon-class="item.meta.icon" /></el-icon>
+				<el-icon><component :is="useRenderIcon(item.meta.icon)" /></el-icon>
 				<span>{{ item.meta.title }}</span>
 			</template>
 			<template v-else>
