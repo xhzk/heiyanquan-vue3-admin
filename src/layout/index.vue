@@ -25,9 +25,9 @@ const isCollapseRef = ref(isCollapse)
 			<div class="main">
 				<router-view />
 			</div>
-			<!-- <div class="footerbox">
+			<div class="footerbox">
 				<div>黑眼圈脚手架 ©2024 Created by 黑眼圈</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </template>
