@@ -1,6 +1,7 @@
 import { UserConfigExport, ConfigEnv, loadEnv } from 'vite'
 import { warpperEnv } from './build'
 import { getPluginsList } from './build/plugins'
+import { include, exclude } from './build/optimize'
 import { resolve } from 'path'
 
 /** 当前执行node命令时文件夹的地址（工作目录） */
@@ -35,6 +36,11 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 			// 本地跨域代理 https://cn.vitejs.dev/config/server-options.html#server-proxy
 			proxy: {}
 		},
-		plugins: getPluginsList()
+		plugins: getPluginsList(),
+		// https://cn.vitejs.dev/config/dep-optimization-options.html#dep-optimization-options
+		optimizeDeps: {
+			include,
+			exclude
+		}
 	}
 }
