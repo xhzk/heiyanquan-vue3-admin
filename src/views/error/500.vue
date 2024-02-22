@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import noServer from '@/assets/error/500.svg'
+import noServer from '@/assets/error/500.svg?component'
 
 defineOptions({
 	name: '500'
