@@ -43,6 +43,9 @@ devDependencies:
   '@iconify-icons/pajamas':
     specifier: ^1.2.32
     version: registry.npmmirror.com/@iconify-icons/pajamas@1.2.32
+  '@iconify-icons/ri':
+    specifier: ^1.2.10
+    version: registry.npmmirror.com/@iconify-icons/ri@1.2.10
   '@iconify/vue':
     specifier: ^4.1.1
     version: registry.npmmirror.com/@iconify/vue@4.1.1(vue@3.3.11)
@@ -1077,6 +1080,14 @@ packages:
     resolution: {integrity: sha512-dKUXcT5n3DAmnCjdIoEOtZqZaf0aZvy5LhibEwWgJh2+c295npLE6JZrykNhwnQSeIW5DJtYn6bXRruBo/qpbQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-icons/pajamas/-/pajamas-1.2.32.tgz}
     name: '@iconify-icons/pajamas'
     version: 1.2.32
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
+    dev: true
+
+  registry.npmmirror.com/@iconify-icons/ri@1.2.10:
+    resolution: {integrity: sha512-wNaXsQYK55WDUWCbcjvnwnODV4Jtsp+VC0duPanibEVu876TUYf6kdgTGtH7/GErBCNdJuJJbncG7vbOaeQi7w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-icons/ri/-/ri-1.2.10.tgz}
+    name: '@iconify-icons/ri'
+    version: 1.2.10
     dependencies:
       '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
     dev: true
