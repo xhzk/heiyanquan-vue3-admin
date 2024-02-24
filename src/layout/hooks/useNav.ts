@@ -26,6 +26,10 @@ export function useNav() {
 		useUserStoreHook().logOut()
 	}
 
+	const device = computed(() => {
+		return dcApp.getDevice
+	})
+
 	return {
 		userAvatar,
 		dcApp,
@@ -33,6 +37,7 @@ export function useNav() {
 		toggleSideBar,
 		username,
 		avatarsStyle,
-		logout
+		logout,
+		device
 	}
 }

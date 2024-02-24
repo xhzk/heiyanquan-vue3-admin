@@ -6,7 +6,7 @@ import MenuFold from './leftCollapse.vue'
 import { useRouter } from 'vue-router'
 import { useNav } from '@/layout/hooks/useNav'
 
-const { dcApp, isCollapse, toggleSideBar } = useNav()
+const { dcApp, isCollapse, toggleSideBar, device } = useNav()
 
 // 拿到路由列表，过滤我们不想要的
 const router = useRouter()
@@ -38,7 +38,10 @@ const routerList = router.getRoutes().filter((v) => v.meta && v.meta.isShow)
 		<!-- router：是否使用 vue-router 的模式，启用该模式会在激活导航时以 index 作为 path 进行路由跳转 -->
 
 		<!-- 折叠按钮 -->
-		<MenuFold :is-active="dcApp.sidebar.opened" @toggleClick="toggleSideBar" />
+		<MenuFold
+			:is-active="dcApp.sidebar.opened"
+			@toggleClick="toggleSideBar"
+			v-if="device === 'desktop'" />
 	</div>
 </template>
 <style lang="scss" scoped>
