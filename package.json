@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"@pureadmin/utils": "^2.4.4",
+		"@vueuse/core": "^10.8.0",
 		"@vueuse/motion": "^2.0.0",
 		"axios": "^1.6.7",
 		"element-plus": "^2.5.5",
