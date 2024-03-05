@@ -4,8 +4,6 @@
 		"module": "esnext",
 		"moduleResolution": "Node",
 		"strict": false,
-		"noUnusedParameters": true,
-		"noUnusedLocals": true,
 		"jsx": "preserve",
 		"importHelpers": true,
 		"experimentalDecorators": true,
@@ -26,7 +24,7 @@
 			"@/*": ["src/*"]
 		},
 
-		"types": ["vite/client", "element-plus/global"]
+		"types": ["node", "vite/client", "element-plus/global"]
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/*.d.ts", "vite.config.ts"],
 	"exclude": ["dist", "**/*.js", "node_modules"]
