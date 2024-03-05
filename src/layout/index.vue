@@ -83,8 +83,12 @@ onMounted(() => {
 			<div class="header">
 				<NavBar />
 			</div>
-			<div class="main">
-				<router-view />
+			<div class="mainbox">
+				<el-scrollbar>
+					<div class="main">
+						<router-view />
+					</div>
+				</el-scrollbar>
 			</div>
 			<div class="footerbox">
 				<div>黑眼圈脚手架 ©2024 Created by 黑眼圈</div>
@@ -105,17 +109,21 @@ onMounted(() => {
 }
 .main-container {
 	// background-color: #0c53fb;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	flex: 1;
 }
 .header {
 	height: 75px; //与logo同高
 	padding: 0 20px;
 	border-bottom: #ebf0f6 2px solid;
 }
-.main {
+.mainbox {
 	flex: 1;
+	overflow: auto;
+}
+.main {
+	padding: 20px 20px 0px 20px;
 }
 .footerbox {
 	height: 56px;
