@@ -1,7 +1,9 @@
 import type { App } from 'vue'
 import NProgress from '@/utils/progress'
 import { getHistoryMode, ascending } from './utils'
+import { sessionKey, type DataInfo } from '@/utils/auth'
 import { createRouter, RouteRecordRaw } from 'vue-router'
+import { storageSession } from '@pureadmin/utils'
 
 import remainingRouter from './modules/remaining'
 
@@ -69,7 +71,11 @@ export const setupRouter = (app: App<Element>) => {
 
 /* 路由前置守卫 */
 router.beforeEach(() => {
+	const userInfo = storageSession().getItem<DataInfo<number>>(sessionKey)
 	NProgress.start()
+	if (userInfo) {
+		// 无权限跳转403
+	}
 })
 
 /* 路由后置守卫 */
