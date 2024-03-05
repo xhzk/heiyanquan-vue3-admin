@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-// 引入 login.ts
+import NProgress from '@/utils/progress'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 import loginRouter from './modules/login'
@@ -27,5 +27,14 @@ export function resetRouter() {
 export const setupRouter = (app: App<Element>) => {
 	app.use(router)
 }
+
+/* 路由前置守卫 */
+router.beforeEach(() => {
+	NProgress.start()
+})
+
+router.afterEach(() => {
+	NProgress.done()
+})
 
 export default router
