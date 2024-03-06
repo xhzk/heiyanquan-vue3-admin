@@ -1,9 +1,0 @@
-dist
-node_modules
-package.json
-eslint.config.js
-.prettierrc.js
-commitlint.config.js
-postcss.config.js
-tailwind.config.ts
-stylelint.config.js
