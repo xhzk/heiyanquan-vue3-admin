@@ -1,9 +1,9 @@
 module.exports = {
 	root: true,
 	extends: [
-		'stylelint-config-standard',
-		'stylelint-config-html/vue',
-		'stylelint-config-recess-order'
+		'stylelint-config-standard', // 配置stylelint拓展插件
+		'stylelint-config-html/vue', // 配置 vue 中 template 样式格式化
+		'stylelint-config-recess-order' // 配置stylelint css属性书写顺序插件
 	],
 	plugins: ['stylelint-order', 'stylelint-prettier', 'stylelint-scss'],
 	overrides: [
@@ -18,10 +18,11 @@ module.exports = {
 		}
 	],
 	rules: {
-		'selector-class-pattern': null,
-		'no-descending-specificity': null,
-		'scss/dollar-variable-pattern': null,
+		'selector-class-pattern': null, // 关闭强制选择器类名的格式
+		'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
+		'scss/dollar-variable-pattern': null, // 允许 SCSS 变量的命名采用任何模式，不做强制规定。
 		'selector-pseudo-class-no-unknown': [
+			// 不允许未知的选择器
 			true,
 			{
 				ignorePseudoClasses: ['deep', 'global']
